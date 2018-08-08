@@ -11,12 +11,16 @@ function increaseRankBy(n){
   var incRank = document.getElementsByClassName('ranked-list');
   for(let i = 0; i < incRank.length; i++)
   {
-    incRank[i].innerText = parseInt(incRank[i].innerText) + n;
+    for(const li of incRank[i].getElementsByTagName('li'))
+    {
+      console.log(li);
+      li.innerHTML = parseInt(li.innerHTML) + n;
+    }
   }
 }
 function deepestChild(){
   var allDivs = document.querySelector('#grand-node');
   allDivs = allDivs.getElementsByTagName('div');
-  lastChild = allDivs[allDivs.length-1].innerHTML;
+   let lastChild = allDivs[allDivs.length-1];
   return lastChild;
   }
